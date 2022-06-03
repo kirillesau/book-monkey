@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
+import {Book} from "../shared/book";
 
 @Component({
   selector: 'bm-book-list-item',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-list-item.component.css']
 })
 export class BookListItemComponent implements OnInit {
+
+  @Input()
+  book: Book;
 
   constructor() { }
 
