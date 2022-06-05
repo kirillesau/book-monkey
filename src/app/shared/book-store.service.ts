@@ -10,7 +10,7 @@ import {BookFactory} from "./book-factory";
 })
 export class BookStoreService {
 
-  private api = 'http://localhost:3000'
+  private api = 'http://localhost:3000/secure'
 
   constructor(private http: HttpClient) {
   }
