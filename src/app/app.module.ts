@@ -10,11 +10,11 @@ import {HomeComponent} from './home/home.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {SearchComponent} from './search/search.component';
 import {TokenInterceptor} from "./shared/token.interceptor";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {DateValueAccessorModule} from "angular-date-value-accessor";
-import { BookFormComponent } from './book-form/book-form.component';
-import { CreateBookComponent } from './create-book/create-book.component';
-import { FormMessagesComponent } from './form-messages/form-messages.component';
+import {BookFormComponent} from './book-form/book-form.component';
+import {CreateBookComponent} from './create-book/create-book.component';
+import {FormMessagesComponent} from './form-messages/form-messages.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,8 @@ import { FormMessagesComponent } from './form-messages/form-messages.component';
     FormsModule,
     DateValueAccessorModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
