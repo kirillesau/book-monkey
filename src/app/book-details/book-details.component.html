@@ -11,11 +11,11 @@
     </div>
     <div class="four wide column">
       <h4>ISBN</h4>
-      {{book.isbn}}
+      {{book.isbn | isbn}}
     </div>
     <div class="four wide column">
       <h4>Erschienen</h4>
-      {{book.published}}
+      {{book.published | date:'longDate'}}
     </div>
     <div class="four wide column">
       <h4>Rating</h4>

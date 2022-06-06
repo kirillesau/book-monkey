@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -15,7 +15,10 @@ import {DateValueAccessorModule} from "angular-date-value-accessor";
 import {BookFormComponent} from './book-form/book-form.component';
 import {CreateBookComponent} from './create-book/create-book.component';
 import {FormMessagesComponent} from './form-messages/form-messages.component';
-import { EditBookComponent } from './edit-book/edit-book.component';
+import {EditBookComponent} from './edit-book/edit-book.component';
+import {registerLocaleData} from "@angular/common";
+import localeDe from '@angular/common/locales/de';
+import { IsbnPipe } from './shared/isbn.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { EditBookComponent } from './edit-book/edit-book.component';
     BookFormComponent,
     CreateBookComponent,
     FormMessagesComponent,
-    EditBookComponent
+    EditBookComponent,
+    IsbnPipe
   ],
   imports: [
     HttpClientModule,
@@ -43,9 +47,16 @@ import { EditBookComponent } from './edit-book/edit-book.component';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
+    },
+    {
+      provide: LOCALE_ID,
+      useValue: 'de'
     }
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor() {
+    registerLocaleData(localeDe)
+  }
 }

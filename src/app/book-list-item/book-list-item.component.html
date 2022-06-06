@@ -1,5 +1,4 @@
-<img class="ui tiny image"
-     *ngIf="book.thumbnails && book.thumbnails[0] && book.thumbnails[0].url"
+<img class="ui tiny image" *ngIf="book.thumbnails && book.thumbnails[0] && book.thumbnails[0].url"
      [src]="book.thumbnails[0].url">
 <div class="content">
   <div class="header">{{book.title}}</div>
@@ -9,6 +8,6 @@
           {{author}}<span *ngIf="!l">, </span>
         </span>
     <br>
-    ISBN {{book.isbn}}
+    ISBN {{book.isbn | isbn}}
   </div>
 </div>
