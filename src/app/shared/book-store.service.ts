@@ -43,13 +43,25 @@ export class BookStoreService {
     return this.http.delete(`${this.api}/book/${isbn}`, {responseType: 'text'});
   }
 
-  create(book: Book):Observable<any>{
+  create(book: Book): Observable<any> {
     return this.http.post(`${this.api}/book`, book, {responseType: 'text'}).pipe(
         catchError(this.errorHandler)
     );
   }
 
-  private errorHandler(error: HttpErrorResponse): Observable<any>{
+  update(book: Book): Observable<any> {
+    return this.http.put(
+        `${this.api}/book/${book.isbn}`, book, {responseType: 'text'}
+    ).pipe(catchError(this.errorHandler))
+  }
+
+  check(isbn: string): Observable<boolean> {
+    return this.http.get<boolean>(`${this.api}/book/${isbn}/check`).pipe(
+        catchError(this.errorHandler)
+    );
+  }
+
+  private errorHandler(error: HttpErrorResponse): Observable<any> {
     console.error("Fehler aufgetreten!");
     return throwError(error)
   }
