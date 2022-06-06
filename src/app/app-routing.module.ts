@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes, PreloadAllModules} from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {BrowserModule} from "@angular/platform-browser";
+import {CanNavigateToAdminGuard} from "./can-navigate-to-admin.guard";
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('src/app/admin/admin.module').then(m => m.AdminModule)
+    loadChildren: () => import('src/app/admin/admin.module').then(m => m.AdminModule),
+    canActivate: [CanNavigateToAdminGuard]
   }
 ];
 
