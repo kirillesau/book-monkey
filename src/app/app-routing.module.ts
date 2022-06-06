@@ -26,7 +26,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [BrowserModule, RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
+  imports: [BrowserModule, RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules,
+    enableTracing: true
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
