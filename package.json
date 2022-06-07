@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "docker:build": "npm install && ng build --prod && docker build -t book-monkey .",
+    "docker:re-deploy": "docker-compose down --remove-orphans && docker-compose up -d"
   },
   "private": true,
   "dependencies": {
