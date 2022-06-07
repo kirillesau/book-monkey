@@ -1,18 +1,20 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {Book} from "./book";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {catchError, map, Observable, retry, throwError} from "rxjs";
 import {BookRaw} from "./book-raw";
 import {BookFactory} from "./book-factory";
+import {API_URL} from "./tokens";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookStoreService {
 
-  private api = 'http://localhost:3000/secure'
-
-  constructor(private http: HttpClient) {
+  constructor(
+      private http: HttpClient,
+      @Inject(API_URL) private api: string
+  ) {
   }
 
   getAll(): Observable<Book[]> {
